@@ -1,0 +1,32 @@
+body,ul,li {
+	padding: 0;
+	margin: 0;
+}
+
+/*----------自定义滚动条-------------*/
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 8px;
+	margin-top: 0px;
+	background-color: #AAA;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+::-webkit-scrollbar-button {
+	display: none;
+	background-color: #777;
+}
+
+::-webkit-scrollbar-corner {
+	display: none;
+	background-color: #FFF;
+}
+/*----------自定义滚动条-------------*/

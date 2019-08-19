@@ -1,0 +1,32 @@
+.adminName {
+	background:
+		url('../images/username.ico')
+		no-repeat 2% center;
+}
+
+.adminPass {
+	background:
+		url('../images/password.ico')
+		no-repeat 2% center;
+}
+
+.icon-logout{
+	background:
+	url('../images/logout_exit.png')
+	no-repeat 0% center;
+}
+.icon-logo{
+	background:
+	url('../images/logo_manager.png')
+	no-repeat 0% center;
+}
+.icon-user{
+	background:
+	url('../images/user.png')
+	no-repeat 0% center;
+}
+.icon-addbook{
+	background:
+	url('../images/addbook.png')
+	no-repeat 0% center;
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Hibernate-mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="org.songjianxi.books.service.impl">
+
+	<resultset name="chartGroup">
+		<return-scalar column="group" type="java.lang.String"/>
+		<return-scalar column="name" type="java.lang.String"/>
+		<return-scalar column="value" type="java.lang.String"/>
+	</resultset>
+	
+	<resultset name="chartNoGroup">
+		<return-scalar column="name" type="java.lang.String"/>
+		<return-scalar column="value" type="java.lang.String"/>
+	</resultset>
+
+	<sql-query name="orderChart" resultset-ref="chartNoGroup">
+		<return class="org.songjianxi.books.util.tips.RespChartData"></return>
+		<![CDATA[
+				SELECT
+					CASE
+				WHEN `order`.`status` = 1 THEN
+					'未确认'
+				WHEN `order`.`status` = 2 THEN
+					'已确认'
+				WHEN `order`.`status` = 4 THEN
+					'已配货'
+				WHEN `order`.`status` = 8 THEN
+					'已发货'
+				WHEN `order`.`status` = 16 THEN
+					'已收货'
+				WHEN `order`.`status` = 32 THEN
+					'已完成'
+				END AS `name`,
+				 CONCAT(count(`order`.orderId),'') AS `value`
+				FROM
+					tb_bookorder `order`
+				WHERE
+					`order`.orderTime BETWEEN :timeFrom
+				AND :timeTo
+				GROUP BY
+				`order`.`status`
+		]]>
+	</sql-query>
+	
+	
+	<sql-query name="orderChartGroup" resultset-ref="chartGroup">
+		<return class="org.songjianxi.books.util.tips.RespChartData"></return>
+		<![CDATA[
+			SELECT
+				CASE
+			WHEN t.`status` = 1 THEN
+				'未确认'
+			WHEN t.`status` = 2 THEN
+				'已确认'
+			WHEN t.`status` = 4 THEN
+				'已配货'
+			WHEN t.`status` = 8 THEN
+				'已发货'
+			WHEN t.`status` = 16 THEN
+				'已收货'
+			WHEN t.`status` = 32 THEN
+				'已完成'
+			END AS `group`,
+			 CONCAT(count(t.orderId),'') AS `value`,
+			DATE_FORMAT(t.orderTime,'%Y-%m-%d') AS `name`
+			FROM
+				tb_bookorder t
+			WHERE
+				t.orderTime BETWEEN :timeFrom
+			AND :timeTo
+			GROUP BY
+				t.`status`,DATE_FORMAT(t.orderTime,'%Y-%m-%d')
+			
+			ORDER BY DATE_FORMAT(t.orderTime,'%Y-%m-%d')
+		]]>
+	</sql-query>
+	
+	
+		<sql-query name="bookChart" resultset-ref="chartNoGroup">
+		<return class="org.songjianxi.books.util.tips.RespChartData"></return>
+		<![CDATA[
+				SELECT bas.bookName AS `name`,
+				       SUM(quantity) AS `value`
+				FROM `tb_orderitem` oit
+				LEFT JOIN tb_bookbaseinfo bas ON bas.bid = oit.bid
+				GROUP BY oit.bid
+		]]>
+	</sql-query>
+	
+	
+
+	
+	
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+@charset "utf-8";
+.cm{background: rgba(0,0,0,.4);margin:0;top:0;padding-top:100px;;left:0;z-index: 998;position: fixed;display: none;}
+	.msgbox{
+			width:400px;height: 200px;background: #FEFEFE;
+			margin:auto;border-radius:10px;border: 1px solid #999;
+			box-shadow: 6px 6px 15px #666;
+			}
+	.msg-title{width: 90%;height: 36px;
+				border-bottom: 1px solid #111;line-height: 36px;
+				padding:0;
+				margin: 0 5%;
+				font-size: 18px;
+				color: #333;
+				}
+	.msg-content{width: 90%;height:100px;
+				padding: 10px 5%;
+				color: #333;
+				}
+	.msg-btn{width: 80%;padding: 0 5% 0 50%;}
+	.msg-btn-cls{width: 80px;height:35px;
+				line-height:35px;border-radius:8px;
+				background: #004076;border: 0px solid red;
+				cursor: pointer;
+				color: #FFF;
+				font-size: 16px;
+				outline: none;
+				}

@@ -1,0 +1,5 @@
+var UserCommentManager = function() {
+	return {
+
+	}
+}();

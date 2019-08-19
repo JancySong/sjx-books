@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		">
+
+	<!-- 引入属性文件 -->
+	<!-- <context:property-placeholder location="classpath:config.properties" 
+		/> -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>classpath:log4j.properties</value>
+				<value>classpath:email.properties</value>
+				<value>classpath:message_zh_CN.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 
+	<bean id="settings"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>classpath:email.properties</value>
+			</list>
+		</property>
+	</bean>
+	 -->
+	<bean id="emailTo" class="org.songjianxi.books.util.SendEmail">
+		<property name="from" value="${mail.from}"></property>
+		<property name="subject" value="${mail.subject}"></property>
+		<property name="content" value="${mail.content}"></property>
+		<property name="host" value="${mail.host}"></property>
+		<property name="username" value="${mail.username}"></property>
+		<property name="password" value="${mail.password}"></property>
+	</bean>
+	<bean id="mail" class="org.songjianxi.books.util.mail.Mail">
+	</bean>
+	
+	<!-- 自动扫描dao和service包(自动注入) -->
+	<context:component-scan
+		base-package="org.songjianxi.books.dao,org.songjianxi.books.dao.impl,org.songjianxi.books.service,org.songjianxi.books.service.impl" />
+
+</beans>

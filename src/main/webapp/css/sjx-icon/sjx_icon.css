@@ -1,0 +1,83 @@
+.sjx-icon-trash{
+	background:url('icons/trash_16x16.gif') no-repeat center center;
+}
+.sjx-icon-dis{
+	width:20px;
+	height:20px;
+	background-image:url('icons/tt.jpg');
+	background-repeat:no-repeat;
+	background-position:-4px -28px;
+}
+.sjx-icon-shipped{
+	width:20px;
+	height:20px;
+	background-image:url('icons/tt.jpg');
+	background-repeat:no-repeat;
+	background-position:-30px -5px;
+}
+.sjx-icon-chart{
+	width:20px;
+	height:20px;
+	background-image:url('icons/chart.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-order{
+	width:16px;
+	height:16px;
+	background-image:url('icons/order.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-comment{
+	width:16px;
+	height:16px;
+	background-image:url('icons/comments.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-category{
+	width:16px;
+	height:16px;
+	background-image:url('icons/category.jpg');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-chart-line{
+	width:16px;
+	height:16px;
+	background-image:url('icons/chart_line.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-chart-pie{
+	width:16px;
+	height:16px;
+	background-image:url('icons/Pie_Chart.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-chart-map{
+	width:16px;
+	height:16px;
+	background-image:url('icons/chart_map.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+.sjx-icon-upload{
+	width:16px;
+	height:16px;
+	background-image:url('icons/upload.png');
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	background-size:16px 16px;
+}
+
+
